@@ -1,2 +1,5 @@
 requests
 colorama
+textblob
+fastapi
+uvicorn
