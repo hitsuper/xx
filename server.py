@@ -1,4 +1,13 @@
+from flask import Flask, render_template, request, redirect, url_for
+import numpy as np
+from scipy.optimize import minimize
+import matplotlib.pyplot as plt
+import io
+import base64
+import time
 import socket
+
+app = Flask(__name__)
 
 def start_server():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -29,3 +38,5 @@ def handle_client(client_socket, client_sockets):
             cs.send(f"{client_socket.getpeername()}: {message}".encode())
 
 start_server()
+
+app.run(debug=True)
